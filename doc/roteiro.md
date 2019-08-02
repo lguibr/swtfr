@@ -61,3 +61,6 @@ A primeira ideia foi usar material design e cards para expor as informações de
 
 Por diversão e para incrementar o projeto me propus utilizar a API de imagens do Google para obter backgrounds para propriedades e avatares dos elementos de modelos da SWAPI. 
 
+### Iniciando o Projeto
+
+Por simplicidade e para explicitar familiaridade com construção de projeto decidi não utilizar o create-react-app, configurando o trio webpack, babel e react como estrutura inicial deste projeto com um Hello World    

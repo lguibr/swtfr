@@ -1,12 +1,31 @@
 import React from "react";
-import "./App.css";
+import Header from "./header/Header";
+import Main from "./main/Main";
+import { MuiThemeProvider ,createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: "#1a237e"
+		},
+		secondary: {
+			main: "#7986cb"
+		}
+	}
+});
+
+
 
 function App() {
 	return (
-		<div className="App">
-            <p>Star Wars - The Front Revenge </p>
-		</div>
+		<MuiThemeProvider theme={theme}>
+			<div className="App">
+				<Header />
+				<Main />
+			</div>
+		</MuiThemeProvider>
 	);
 }
 
 export default App;
+
