@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
 	card: {
+        maxWidth : "100%"
 	},
 	media: {
 		height: 140
@@ -22,7 +23,7 @@ export default function PropCard() {
 			<CardActionArea>
 				<CardMedia
 					className={classes.media}
-					image="https://designermaodevaca.com/manager/upload/f2e475-pixabay-secao-png-designer-mao-de-vaca1.png"
+					image="https://i.imgur.com/XZ5KpIV.jpg"
 					title="Titulo Da Imagem"
 				/>
 				<CardContent>

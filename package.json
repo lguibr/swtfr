@@ -7,6 +7,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "scripts": {
@@ -18,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@material-ui/core": "^4.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
