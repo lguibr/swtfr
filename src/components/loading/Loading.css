@@ -1,8 +1,14 @@
 body {
 	width: 100%;
 	height: 100%;
+	background: #000;
 }
-
+html{
+	background: #000;
+}
+p{
+	background: #000;
+}
 .fade {
 	position: relative;
 	width: 100%;

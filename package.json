@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://robertoachar.github.io/swtfr",
+  "homepage": "https://lguibr.github.io/swtfr",
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -17,7 +17,7 @@
     "build": "webpack",
     "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b 'gh-pages' -d build "
   },
   "keywords": [],
   "author": "",
@@ -25,7 +25,6 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@material-ui/core": "^4.3.0",
-    "gh-pages": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -38,6 +37,7 @@
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
     "file-loader": "^4.1.0",
+    "gh-pages": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.38.0",
