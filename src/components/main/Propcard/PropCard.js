@@ -8,16 +8,17 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
 	card: {
-        maxWidth : "100%"
+		width: "90%",
+		height: "90%"
 	},
 	media: {
-		height: 140
+		height: 100
 	}
 });
 
-export default function PropCard() {
+const  PropCard = (props) => {
+	
 	const classes = useStyles();
-
 	return (
 		<Card className={classes.card}>
 			<CardActionArea>
@@ -27,11 +28,13 @@ export default function PropCard() {
 					title="Titulo Da Imagem"
 				/>
 				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						elementModelProp: Value(50)
+					<Typography variant="subtitle2" component="h2">
+						{props.propName} : {props.propValue} 
 					</Typography>
 				</CardContent>
 			</CardActionArea>
 		</Card>
 	);
 }
+
+export default PropCard

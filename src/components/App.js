@@ -8,8 +8,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
 
-		this.state = {
-    }
+		this.state = {}
 
 		this.onChange = this.onChange.bind(this)
 	}
@@ -17,22 +16,26 @@ class App extends React.Component {
   onChange (event) {
     this.setState({ value: event.target.value })
 	}
-
+  
   render () {
-    return (
-      <div className="App">
-        <Header />
-        <Main />
-        <Button
-          onClick={() => {
-            (this.props.toggleTheme())
-          }}
-          variant="contained"
-        >
-						Default
-        </Button>
-      </div>
-    )
+    if(!this.state.data){
+      return <p>loading</p>
+    }else{
+      return (
+        <div className="App">
+          <Header />
+          <Main data = {this.state.data}/>
+          <Button
+            onClick={() => {
+              (this.props.toggleTheme())
+            }}
+            variant="contained"
+          >
+              Default
+          </Button>
+        </div>
+      )
+    }
 	}
 
   componentDidMount () {

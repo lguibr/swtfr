@@ -5,12 +5,18 @@ import { CssBaseline } from "@material-ui/core";
 
 const darkTheme = createMuiTheme({
 	palette: {
-		type: "dark"
+		type: "dark",
+		primary: {
+			main: "#dd2c00"
+		}
 	}
 });
 const lightTheme = createMuiTheme({
 	palette: {
-		type: "light"
+		type: "light",
+		primary: {
+			main: "#0d47a1"
+		}
 	}
 });
 
