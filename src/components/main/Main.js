@@ -1,25 +1,37 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
-import PropCard from "./Propcard/PropCard";
+import PropCard from "./propCard/PropCard";
 
 const style = {
 	Grid: {
 		padding: 20
 	}
 };
-
 export class Main extends Component {
 	componentDidMount() {}
 	render() {
-		const teste = "data";
-		const data = this.props.data;
+		const { data } = this.props;
 		console.log(data);
-		Object.keys(data).map((e, i) => console.log(e, i));
+		Object.keys(data).map((e, i) => {
+
+
+		});
+
 		return (
-			<Grid container style={style.Grid}>
+			<Grid
+				container
+				wrap="wrap"
+				justify={"space-between"}
+				style={style.Grid}
+				spacing={2}
+			>
 				{Object.keys(data).map((e, i) => (
-					<Grid key={i} item sm>
-						<PropCard key={i} propName={e} propValue={data[e]} />
+					<Grid key={i} xs={3} sm={6} item>
+						<PropCard
+							key={i}
+							propName={e}
+							propValue={data[e]}
+						/>
 					</Grid>
 				))}
 			</Grid>

@@ -1,48 +1,41 @@
-import React from 'react';
-import Header from './header/Header';
-import Main from './main/Main';
-
-import Button from '@material-ui/core/Button';
+import React from "react";
+import Header from "./header/Header";
+import Main from "./main/Main";
+import Loading from "./loading/Loading";
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
+	constructor(props) {
+		super(props);
 
-		this.state = {}
+		this.state = {};
 
-		this.onChange = this.onChange.bind(this)
+		this.onChange = this.onChange.bind(this);
 	}
 
-  onChange (event) {
-    this.setState({ value: event.target.value })
-	}
-  
-  render () {
-    if(!this.state.data){
-      return <p>loading</p>
-    }else{
-      return (
-        <div className="App">
-          <Header />
-          <Main data = {this.state.data}/>
-          <Button
-            onClick={() => {
-              (this.props.toggleTheme())
-            }}
-            variant="contained"
-          >
-              Default
-          </Button>
-        </div>
-      )
-    }
+	onChange(event) {
+		this.setState({ value: event.target.value });
 	}
 
-  componentDidMount () {
-    fetch('https://swapi.co/api/')
-      .then(response => response.json())
-      .then(data => this.setState({ data }))
+	render() {
+		const { toggleTheme } = this.props;
+		if (!this.state.data) {
+			return <Loading />;
+		} else {
+			return (
+				<div className="App">
+					<Header toggleTheme={toggleTheme} />
+					<Main data={this.state.data} />
+				</div>
+			);
+		}
+	}
+
+	componentDidMount() {
+		// fetch("https://jsonplaceholder.typicode.com/posts/1")
+		fetch("https://swapi.co/api/people/1/")
+			.then(response => response.json())
+			.then(data => this.setState({ data }));
 	}
 }
 
-export default App
+export default App;

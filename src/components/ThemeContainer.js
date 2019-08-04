@@ -22,11 +22,11 @@ const lightTheme = createMuiTheme({
 
 class ThemeContainer extends React.Component {
 	state = {
-		theme: darkTheme
+		theme: lightTheme
 	};
 
 	togleTheme = () => {
-		let theme 
+		let theme;
 		console.log(this.state.theme.palette.type);
 		if (this.state.theme == darkTheme) {
 			this.state.theme = lightTheme;
@@ -36,7 +36,7 @@ class ThemeContainer extends React.Component {
 		} else {
 			this.state.theme = darkTheme;
 			console.log(this.state.theme.palette.type);
-			theme =  darkTheme;
+			theme = darkTheme;
 		}
 		this.handleChangeTheme(theme);
 	};

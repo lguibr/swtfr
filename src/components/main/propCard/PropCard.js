@@ -8,8 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
 	card: {
-		width: "90%",
-		height: "90%"
+		maxHeight:"90%"
 	},
 	media: {
 		height: 100
@@ -19,6 +18,7 @@ const useStyles = makeStyles({
 const  PropCard = (props) => {
 	
 	const classes = useStyles();
+	console.log(typeof([1,1]))
 	return (
 		<Card className={classes.card}>
 			<CardActionArea>
