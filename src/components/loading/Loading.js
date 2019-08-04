@@ -8,7 +8,7 @@ export class Loading extends Component {
 				<section className="star-wars">
 					<div className="crawl">
 						<div className="title">
-							<p>Episode XLII</p>
+							<p>Episode XLII - Teste Final </p>
 							<h1>The Front Revenge</h1>
 						</div>
 
