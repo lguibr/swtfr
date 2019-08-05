@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import ForceSwitch from "./foreceSwitch/ForceSwitch";
-import { HashRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export class Header extends Component {
 	render() {
@@ -10,8 +10,8 @@ export class Header extends Component {
 			<AppBar position="static" color="primary">
 				<Toolbar>
 					<Link style={{ textDecoration: "none", flex: 1 }} to="/">
-						<Typography variant="h4" color="secondary">
-							Star Wars - The Front Revenge
+						<Typography variant="body2" color="secondary">
+							<i className="swg swg-6x swg-starwars " />
 						</Typography>
 					</Link>
 

@@ -5,21 +5,49 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { HashRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
 	card: {
-		maxHeight: "90%",
-		maxWidth: "90%",
-		textTransform: "capitalize"
+		textTransform: "capitalize",
+		justifyContent : "space-between"
 	},
 	media: {
-		height: 90
+		height: "20vmin"
 	}
 });
 
+const getModelIcon = propName => {
+	let iconName;
+	switch (propName) {
+		case "planets":
+			iconName = "swg-deathstar-4";
+			break;
+		case "people":
+			iconName = "swg-hansolo";
+			break;
+		case "species":
+			iconName = "swg-chewbacca";
+			break;
+		case "films":
+			iconName = "swg-sw-alt-2";
+			break;
+		case "vehicles":
+			iconName = "swg-atat-2";
+			break;
+		case "starships":
+			iconName = "swg-falcon-3";
+			break;
+		default:
+			iconName = "swg-yoda-2"
+			break;
+	}
+	return iconName;
+};
+
 const ModelCard = props => {
 	const classes = useStyles();
+	const iconName = getModelIcon(props.propName);
 	return (
 		<Card className={classes.card}>
 			<CardActionArea
@@ -42,6 +70,8 @@ const ModelCard = props => {
 							variant="subtitle1"
 							align="center"
 						>
+							
+							<i className={"swg swg-x2  " + iconName} />
 							{props.propName.toUpperCase()}
 						</Typography>
 					</Link>

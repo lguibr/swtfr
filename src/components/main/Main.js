@@ -1,20 +1,56 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
-import PropCard from "./propCard/PropCard";
+// import PropCard from "./propCard/PropCard";
 import ModelCard from "./modelCard/ModelCard";
 
 const style = {
 	Grid: {
 		maxWidth: "100%",
-		padding: "2em"
+		margin:"auto"
 	}
 };
+//  ModelCard Models
+//  ElementsCard ElementModels
+// 	PropCard ElementProps
+
+const isMostlyNumber = (string)=>{
+	let countNumber = 0 
+	console.warn(string)
+	for (let i = 0; i < string.length; i++) {
+		const char = string[i];
+
+		if(!isNaN(parseFloat(char))){
+			countNumber =+ 1
+		}
+	}
+	console.error(countNumber);
+
+	return (countNumber>(string.length/2))
+}
+
+const getCardType = (propValue)=>{
+	if(typeof(propValue) == "number"){
+		return "is a number"
+	}
+	if(typeof(propValue) == "string" ){
+		if (isMostlyNumber(propValue)) {
+			return "é majoritariamente um numero";
+		}
+		return("é string")
+	}else if (Array.isArray(propValue)){
+		return("é array")
+	} else {
+		return ("ainda não identificado")
+	}
+}
+
 export class Main extends Component {
 	render() {
 		const { data } = this.props;
 
 		Object.keys(data).map((e, i) => {
-			// console.log(data[e]);
+			console.log(e,":" ,data[e] ,":" , i);
+			console.error(getCardType(data[e]))
 		});
 
 		return (
@@ -22,7 +58,6 @@ export class Main extends Component {
 				container
 				wrap="wrap"
 				style={style.Grid}
-				justify="space-between"
 				spacing={2}
 			>
 				{Object.keys(data).map((e, i) => {
