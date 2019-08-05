@@ -10,6 +10,7 @@ const style = {
 	}
 };
 export class Main extends Component {
+
 	isMostlyNumber(string) {
 		let countNumbers = 0;
 		let mostlyNumber = false;
