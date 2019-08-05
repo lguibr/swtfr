@@ -21,17 +21,14 @@ class App extends React.Component {
 	render() {
 		const { toggleTheme } = this.props;
 		const history = createHashHistory({
-			basename: "", 
-			hashType: "slash", 
+			basename: "",
+			hashType: "slash"
 		});
 		const location = history.location;
+
 		console.log(history);
 		console.log(location);
-
-		history.push("/about", { some: "state" });
-		history.go(-1);
-
-		console.log(location.hash)
+		console.log(location.hash);
 
 		if (!this.state.data) {
 			return <Loading />;
