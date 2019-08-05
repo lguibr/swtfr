@@ -27,7 +27,7 @@ export class Main extends Component {
 			>
 				{Object.keys(data).map((e, i) => {
 					return (
-						<Grid key={i} xs={3} sm={6} item>
+						<Grid key={i} xs={6} sm={4} md={3} item>
 							<ModelCard
 								key={i}
 								propName={e}
