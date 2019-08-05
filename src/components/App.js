@@ -3,7 +3,7 @@ import { HashRouter, Route, Link } from "react-router-dom";
 import Header from "./header/Header";
 import Main from "./main/Main";
 import Loading from "./loading/Loading";
-import { createHashHistory } from "history";
+// import { createHashHistory } from "history";
 
 class App extends React.Component {
 	constructor(props) {
@@ -20,15 +20,15 @@ class App extends React.Component {
 
 	render() {
 		const { toggleTheme } = this.props;
-		const history = createHashHistory({
-			basename: "",
-			hashType: "slash"
-		});
-		const location = history.location;
+		// const history = createHashHistory({
+		// 	basename: "",
+		// 	hashType: "slash"
+		// });
+		// const location = history.location;
 
-		console.log(history);
-		console.log(location);
-		console.log(location.hash);
+		// console.log(history);
+		// console.log(location);
+		// console.log(location.hash);
 
 		if (!this.state.data) {
 			return <Loading />;
