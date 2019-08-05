@@ -1,7 +1,9 @@
 import React from "react";
+import { HashRouter, Route, Link } from "react-router-dom";
 import Header from "./header/Header";
 import Main from "./main/Main";
 import Loading from "./loading/Loading";
+import { createHashHistory } from "history";
 
 class App extends React.Component {
 	constructor(props) {
@@ -18,21 +20,40 @@ class App extends React.Component {
 
 	render() {
 		const { toggleTheme } = this.props;
+		const history = createHashHistory({
+			basename: "", 
+			hashType: "slash", 
+		});
+		const location = history.location;
+		console.log(history);
+		console.log(location);
+
+		history.push("/about", { some: "state" });
+		history.go(-1);
+
+		console.log(location.hash)
+
 		if (!this.state.data) {
 			return <Loading />;
 		} else {
 			return (
-				<div className="App">
-					<Header toggleTheme={toggleTheme} />
-					<Main data={this.state.data} />
-				</div>
+				<HashRouter basename="/">
+					<div className="App">
+						<Header toggleTheme={toggleTheme} />
+
+						<Route
+							exact
+							path="/"
+							component={() => <Main data={this.state.data} />}
+						/>
+					</div>
+				</HashRouter>
 			);
 		}
 	}
 
 	componentDidMount() {
-		// fetch("https://jsonplaceholder.typicode.com/posts/1")
-		fetch("https://swapi.co/api/people/1/")
+		fetch("https://swapi.co/api/")
 			.then(response => response.json())
 			.then(data => this.setState({ data }));
 	}

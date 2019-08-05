@@ -6,10 +6,13 @@ export default function Switches(props) {
     const {toggleTheme} = props
 	return (
 		<div>
+			<i className="swg swg-lg swg-reball " />
+
 			<Switch
 				onChange={toggleTheme}
 				inputProps={{ "aria-label": "secondary checkbox" }}
 			/>
+			<i className="swg swg-lg swg-sithemp " />
 		</div>
 	);
 }
