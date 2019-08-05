@@ -20,12 +20,6 @@ class App extends React.Component {
 
 	render() {
 		const { toggleTheme } = this.props;
-		const history = createHashHistory({
-			basename: "",
-			hashType: "slash"
-		});
-
-		// history.push("/planets/")
 
 		if (!this.state.data) {
 			return <Loading />;
@@ -36,7 +30,7 @@ class App extends React.Component {
 						<Header toggleTheme={toggleTheme} />
 
 						<Route
-							path="/:a([A-Za-z]+)"
+							path="/"
 							component={() => (
 								<Main
 									history={history}
@@ -50,10 +44,29 @@ class App extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		fetch("https://swapi.co/api/")
+	// path="/:a([A-Za-z]+)"
+
+	fetchData(path = "/") {
+		const baseUrl = "https://swapi.co/api";
+		fetch(`${baseUrl}${path}`)
 			.then(response => response.json())
 			.then(data => this.setState({ data }));
+	}
+
+	componentDidMount() {
+		const history = createHashHistory({
+			basename: "",
+			hashType: "slash"
+		});
+
+		this.setState({ history });
+
+		history.listen(e => {
+			console.error("listen", e.pathname);
+			this.fetchData(e.pathname);
+		});
+
+		this.fetchData(history.location.pathname);
 	}
 }
 

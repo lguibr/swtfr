@@ -33,11 +33,18 @@ const ModelCard = props => {
 					title="Titulo Da Imagem"
 				/>
 				<CardContent>
-					<Typography color="textPrimary" variant="h6" align="center">
-						<Link to={props.propName}>
+					<Link
+						style={{ textDecoration: "none" }}
+						to={props.propName}
+					>
+						<Typography
+							color="textPrimary"
+							variant="subtitle1"
+							align="center"
+						>
 							{props.propName.toUpperCase()}
-						</Link>
-					</Typography>
+						</Typography>
+					</Link>
 				</CardContent>
 			</CardActionArea>
 		</Card>

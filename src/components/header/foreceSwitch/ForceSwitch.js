@@ -1,18 +1,20 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
+import { Typography } from "@material-ui/core";
 
 export default function Switches(props) {
-	console.log(props);
-    const {toggleTheme} = props
+	const { toggleTheme } = props;
 	return (
 		<div>
-			<i className="swg swg-lg swg-reball " />
+			<Typography variant="inherit" color="secondary">
+				<i className="swg swg-lg swg-reball " />
 
-			<Switch
-				onChange={toggleTheme}
-				inputProps={{ "aria-label": "secondary checkbox" }}
-			/>
-			<i className="swg swg-lg swg-sithemp " />
+				<Switch
+					onChange={toggleTheme}
+					inputProps={{ "aria-label": "secondary checkbox" }}
+				/>
+				<i className="swg swg-lg swg-sithemp " />
+			</Typography>
 		</div>
 	);
 }
