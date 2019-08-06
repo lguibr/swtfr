@@ -71,7 +71,7 @@ const ModelCard = props => {
 							align="center"
 						>
 							<i className={"swg swg-x2  " + iconName} />
-							{props.propName.toUpperCase()}
+							{props.propName.replace("_", " ").toUpperCase()}
 						</Typography>
 					</Link>
 				</CardContent>

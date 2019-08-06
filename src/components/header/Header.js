@@ -6,14 +6,46 @@ import { Link } from "react-router-dom";
 export class Header extends Component {
 	render() {
 		const { toggleTheme } = this.props;
+		const title = this.props.history.location.pathname
+			.split("/")[1]
+			.toUpperCase();
+		console.error(this.props);
 		return (
 			<AppBar position="static" color="primary">
 				<Toolbar>
+					{title && (
+						<Typography
+							style={{
+								transform: "rotate(180deg)",
+								padding: "1rem"
+							}}
+							onClick={this.props.history.goBack}
+							variant="body2"
+							color="secondary"
+						>
+							<i className="swg swg-4x swg-jedistarfight " />
+						</Typography>
+					)}
+
 					<Link style={{ textDecoration: "none", flex: 1 }} to="/">
-						<Typography variant="body2" color="secondary">
+						<Typography
+							style={{
+								padding: "1rem",
+								marginTop:10
+							}}
+							variant="body2"
+							color="secondary"
+						>
 							<i className="swg swg-6x swg-starwars " />
 						</Typography>
 					</Link>
+					<Typography
+						style={{ flex: 1 }}
+						variant="subtitle1"
+						color="secondary"
+					>
+						{title}
+					</Typography>
 
 					<ForceSwitch toggleTheme={toggleTheme} />
 				</Toolbar>

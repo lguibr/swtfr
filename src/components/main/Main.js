@@ -7,7 +7,7 @@ import ListCard from "./listCard/ListCard";
 const style = {
 	Grid: {
 		maxWidth: "100%",
-		margin: "auto"
+		padding	: "40px 30px" 
 	}
 };
 //  ModelCard Models

@@ -37,7 +37,7 @@ const PropCard = props => {
 							variant="subtitle1"
 							align="center"
 						>
-							{props.propName} : {props.propValue}
+							{props.propName.replace("_", " ").toUpperCase()} : {props.propValue}
 						</Typography>
 				</CardContent>
 			</CardActionArea>

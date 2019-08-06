@@ -27,7 +27,7 @@ class App extends React.Component {
 			return (
 				<HashRouter basename="/">
 					<div className="App">
-						<Header toggleTheme={toggleTheme} />
+						<Header history={this.state.history} toggleTheme={toggleTheme} />
 
 						<Route
 							path="/"
@@ -44,7 +44,6 @@ class App extends React.Component {
 		}
 	}
 
-	// path="/:a([A-Za-z]+)"
 
 	fetchData(path = "/") {
 		const baseUrl = "https://swapi.co/api";
