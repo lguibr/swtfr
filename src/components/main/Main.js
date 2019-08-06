@@ -114,7 +114,6 @@ export class Main extends Component {
 							e == "vehicles" ||
 							e == "starships"
 						) {
-							console.log("listCard1!");
 							return (
 								<Grid key={i} xs={6} sm={4} md={3} item>
 									<ListCard

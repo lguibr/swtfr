@@ -19,16 +19,19 @@ const useStyles = makeStyles({
 
 const getTitle = path => {
 	const baseUrl = "https://swapi.co/api";
+	let title
 	fetch(`${baseUrl}${path}`)
 		.then(response => response.json())
 		.then(data => {
-			return data.title ? data.title : data.name;
+			title = data.title ? data.title : data.name;
+			console.log(title);
+			return title;
 		});
+		return title;
 };
 
 const ListCard = props => {
 	const classes = useStyles();
-
 	return (
 		<Card className={classes.card}>
 			<CardActionArea
@@ -51,7 +54,22 @@ const ListCard = props => {
 
 						{props.propValue.map((e, i) => {
 							console.error(e);
-							<br />;
+							const pathLink = e.replace("https://swapi.co/api","")
+							
+							return (
+								<Typography
+									key={i}
+									color="textPrimary"
+									variant="body1"
+									align="center"
+								>
+									<br />
+									<Link style={{ textDecoration: "none" }} to={pathLink}>
+									{console.log(getTitle(pathLink))}
+									{e}
+									</Link>
+								</Typography>
+							);
 						})}
 					</Typography>
 				</CardContent>
