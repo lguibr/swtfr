@@ -62,11 +62,14 @@ class App extends React.Component {
 		this.setState({ history });
 
 		history.listen(e => {
-			console.error("listen", e.pathname);
-			this.fetchData(e.pathname);
+			this.fetchData(
+				e.pathname + history.location.search.replace("/", "")
+			);
 		});
 
-		this.fetchData(history.location.pathname);
+		this.fetchData(
+			history.location.pathname + history.location.search.replace("/", "")
+		);
 	}
 }
 

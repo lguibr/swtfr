@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
 	card: {
 		textTransform: "capitalize",
-		justifyContent : "space-between"
+		justifyContent: "space-between"
 	},
 	media: {
 		height: "20vmin"
@@ -39,7 +39,7 @@ const getModelIcon = propName => {
 			iconName = "swg-falcon-3";
 			break;
 		default:
-			iconName = "swg-yoda-2"
+			iconName = "swg-yoda-2";
 			break;
 	}
 	return iconName;
@@ -48,6 +48,9 @@ const getModelIcon = propName => {
 const ModelCard = props => {
 	const classes = useStyles();
 	const iconName = getModelIcon(props.propName);
+	console.log(props.propValue);
+	const pathLink = props.propValue.replace("https://swapi.co/api", "");
+	
 	return (
 		<Card className={classes.card}>
 			<CardActionArea
@@ -61,16 +64,12 @@ const ModelCard = props => {
 					title="Titulo Da Imagem"
 				/>
 				<CardContent>
-					<Link
-						style={{ textDecoration: "none" }}
-						to={props.propName}
-					>
+					<Link style={{ textDecoration: "none" }} to={pathLink}>
 						<Typography
 							color="textPrimary"
 							variant="subtitle1"
 							align="center"
 						>
-							
 							<i className={"swg swg-x2  " + iconName} />
 							{props.propName.toUpperCase()}
 						</Typography>

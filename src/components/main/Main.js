@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
-// import PropCard from "./propCard/PropCard";
+import PropCard from "./propCard/PropCard";
 import ModelCard from "./modelCard/ModelCard";
+import ListCard from "./listCard/ListCard";
 
 const style = {
 	Grid: {
@@ -38,7 +39,7 @@ const getCardType = propValue => {
 		if (isMostlyNumber(propValue)) {
 			return "mostlyNumber";
 		} else if (isUrl(propValue)) {
-			return "url"
+			return "url";
 		} else {
 			return "string";
 		}
@@ -58,27 +59,96 @@ const getCardType = propValue => {
 export class Main extends Component {
 	render() {
 		const { data } = this.props;
-
 		Object.keys(data).map((e, i) => {
 			console.log(e, ":", data[e], ":", i);
-			console.error(getCardType(data[e]));
 		});
 
 		return (
 			<Grid container wrap="wrap" style={style.Grid} spacing={2}>
 				{Object.keys(data).map((e, i) => {
-					if (getCardType == null) {
+					const cardType = getCardType(data[e]);
+
+					if (cardType == "null") {
 						return null;
+					} else if (
+						cardType == "string" ||
+						cardType == "number" ||
+						cardType == "mostlyNumber"
+					) {
+						return (
+							<Grid key={i} xs={6} sm={4} md={3} item>
+								<PropCard
+									key={i}
+									propName={e}
+									propValue={data[e]}
+								/>
+							</Grid>
+						);
+					} else if (cardType == "url") {
+						return (
+							<Grid key={i} xs={6} sm={4} md={3} item>
+								<ModelCard
+									key={i}
+									propName={e}
+									propValue={data[e]}
+								/>
+							</Grid>
+						);
+					} else if (cardType == "object") {
+						return (
+							<Grid key={i} xs={6} sm={4} md={3} item>
+								<ModelCard
+									key={i}
+									propName={e}
+									propValue={data[e]}
+								/>
+							</Grid>
+						);
+					} else if (cardType == "array") {
+						const arrayProp = data[e];
+						if (
+							e == "people" ||
+							e == "planets" ||
+							e == "films" ||
+							e == "species" ||
+							e == "vehicles" ||
+							e == "starships"
+						) {
+							console.log("listCard1!");
+							return (
+								<Grid key={i} xs={6} sm={4} md={3} item>
+									<ListCard
+										key={i}
+										propName={e}
+										propValue={arrayProp}
+									/>
+								</Grid>
+							);
+						} else {
+							return arrayProp.map((ele, i) => {
+								if (
+									(ele.name && ele.url) ||
+									(ele.title && ele.url)
+								) {
+									return (
+										<Grid key={i} xs={6} sm={4} md={3} item>
+											<ModelCard
+												key={i}
+												propName={
+													ele.name
+														? ele.name
+														: ele.name
+												}
+												propValue={ele.url}
+											/>
+										</Grid>
+									);
+								}
+							});
+						}
+					} else {
+						console.error("erro");
 					}
-					return (
-						<Grid key={i} xs={6} sm={4} md={3} item>
-							<ModelCard
-								key={i}
-								propName={e}
-								propValue={data[e]}
-							/>
-						</Grid>
-					);
 				})}
 			</Grid>
 		);
