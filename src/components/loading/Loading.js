@@ -14,7 +14,14 @@ export class Loading extends Component {
 
 						<p>
 							A long long time ago in a galaxy far far
-							away a developer...
+							away a developer has been challenged to make a front-end but
+							first he needs to wait for a API response
+							...
+							<br />
+							<br />
+							<br />
+							To confirm the status of the api go to
+							http://swapi.co/ may the force be with you.
 						</p>
 					</div>
 				</section>

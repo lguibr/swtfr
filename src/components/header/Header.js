@@ -16,14 +16,13 @@ export class Header extends Component {
 					{title && (
 						<Typography
 							style={{
-								transform: "rotate(180deg)",
-								padding: "1rem"
+								transform: "rotate(180deg)"
 							}}
 							onClick={this.props.history.goBack}
 							variant="body2"
 							color="secondary"
 						>
-							<i className="swg swg-4x swg-jedistarfight " />
+							<i className="swg swg-3x swg-jedistarfight " />
 						</Typography>
 					)}
 
@@ -31,7 +30,7 @@ export class Header extends Component {
 						<Typography
 							style={{
 								padding: "1rem",
-								marginTop:10
+								marginTop: 10
 							}}
 							variant="body2"
 							color="secondary"
@@ -41,10 +40,10 @@ export class Header extends Component {
 					</Link>
 					<Typography
 						style={{ flex: 1 }}
-						variant="subtitle1"
+						variant="h5"
 						color="secondary"
 					>
-						{title}
+						<b>{title}</b>
 					</Typography>
 
 					<ForceSwitch toggleTheme={toggleTheme} />
