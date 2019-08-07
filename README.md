@@ -49,7 +49,7 @@ Este projeto usa **ReactJs**, **React-router**, **Material-UI** ; dependencias d
 
 Sem proposito de ser um produto este app ainda não tem uma configuração de ambiente robusta.
 
-**As melhorias em seu roteiro são: **
+**As melhorias em seu roteiro são:**
 
 - Transformar esta aplicação em um PWA.
 
