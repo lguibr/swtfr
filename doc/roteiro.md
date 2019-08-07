@@ -59,8 +59,6 @@ Primeiros pontos que me chamaram atenção foi a estrutura das urls que me parec
 
 A primeira ideia foi usar material design e cards para expor as informações de cada uma das propriedades dos modelos expostos pela API, expostos em 3 tipos de card um maior para lista de links que é uma informação mais extensa, um card mediano para expor dados em strings e um ultimo card menorzinho para expor numeros uma vez que os numeros não apresentam grande numero de algarismos significativos. 
 
-Por diversão e para incrementar o projeto me propus utilizar a API de imagens do Google para obter backgrounds para propriedades e avatares dos elementos de modelos da SWAPI. 
-
 ### Iniciando o Projeto
 
 Por simplicidade e para explicitar familiaridade com construção de projeto decidi não utilizar o create-react-app, configurando o trio webpack, babel e react como estrutura inicial deste projeto com um Hello World.
