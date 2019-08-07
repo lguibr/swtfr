@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route, Link } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import Header from "./header/Header";
 import Main from "./main/Main";
 import Loading from "./loading/Loading";
@@ -27,7 +27,7 @@ class App extends React.Component {
 			return (
 				<HashRouter basename="/">
 					<div className="App">
-						<Header toggleTheme={toggleTheme} />
+						<Header history={this.state.history} toggleTheme={toggleTheme} />
 
 						<Route
 							path="/"
@@ -44,7 +44,6 @@ class App extends React.Component {
 		}
 	}
 
-	// path="/:a([A-Za-z]+)"
 
 	fetchData(path = "/") {
 		const baseUrl = "https://swapi.co/api";
@@ -62,11 +61,14 @@ class App extends React.Component {
 		this.setState({ history });
 
 		history.listen(e => {
-			console.error("listen", e.pathname);
-			this.fetchData(e.pathname);
+			this.fetchData(
+				e.pathname + history.location.search.replace("/", "")
+			);
 		});
 
-		this.fetchData(history.location.pathname);
+		this.fetchData(
+			history.location.pathname + history.location.search.replace("/", "")
+		);
 	}
 }
 

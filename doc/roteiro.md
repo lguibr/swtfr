@@ -63,4 +63,23 @@ Por diversão e para incrementar o projeto me propus utilizar a API de imagens d
 
 ### Iniciando o Projeto
 
-Por simplicidade e para explicitar familiaridade com construção de projeto decidi não utilizar o create-react-app, configurando o trio webpack, babel e react como estrutura inicial deste projeto com um Hello World    
+Por simplicidade e para explicitar familiaridade com construção de projeto decidi não utilizar o create-react-app, configurando o trio webpack, babel e react como estrutura inicial deste projeto com um Hello World.
+
+### Ferramentas
+
+Para este projeto escolhi utilizar o framework de UI compatível com React chamado Material-UI eu já havia brincado bastante nele no passado, para manejar as rotas utilizei o React-Router. 
+
+Para poder facilitar a visualização imediata do projeto optei por um repositorio publico no Github e aproveitando os serviçoes da Github utilizei o servico Github Pages para poder publicar a aplicação web de forma gratuita e facil.
+
+### Mais Rascunhos
+
+
+
+![](https://i.imgur.com/OObjkYS.jpg)
+
+Apos refletir e observar melhor a estrutura de dados ao invez de fazer um ataque ao problema baseado, no grupo de baixo nivel do dado exposto, reformulei em 3 cards de mais alto nivel o card de modelo, card de propriedade, e card de lista de modelos 
+
+### Dores do  Projeto
+
+De longe a maior dor na implementação desse projeto foi a instabilidade do serviço do swapi.co, como comentado no README.md acho que a implementação de um PWA seria incrivel para cachear as informações e minguar os travamentos de carregamento ou de timeout do servidor, inclusive há um easter egg no pagina de carregamento incial da aplicação.
+Também tive alguns leves entraves com com o gh-pages que resolvi dando um downgrade temporário na dependencia e nas configurações de ambiente de desenvolvimento do projeto, mas acho sempre valido enfrentar esses entraves que se convertem em aprendizado principalmente em projetos mais descontraidos, divertidos e ludicos. 
