@@ -38,7 +38,7 @@ const getModelIcon = propName => {
 			iconName = "swg-falcon-3";
 			break;
 		default:
-			iconName = "swg-yoda-2";
+			iconName = "swg-bb8-4";
 			break;
 	}
 	return iconName;
